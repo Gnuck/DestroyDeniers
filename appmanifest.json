@@ -1,0 +1,10 @@
+{
+	"name": "GlobalWarmingGame",
+	"short_name": "GlobalWarmingGame",
+	"description": "Demo platform game for Construct 3.",
+	"start_url": "index.html",
+	"display": "fullscreen",
+	"orientation": "landscape",
+	"background_color": "#ffffff",
+	"icons": []
+}
