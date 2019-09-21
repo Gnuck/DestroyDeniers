@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/static/css/main.f2baa2db.chunk.css",
+    "main.js": "/static/js/main.fb197050.chunk.js",
+    "main.js.map": "/static/js/main.fb197050.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.5559a321.js",
+    "runtime-main.js.map": "/static/js/runtime-main.5559a321.js.map",
+    "static/js/2.4d0c177f.chunk.js": "/static/js/2.4d0c177f.chunk.js",
+    "static/js/2.4d0c177f.chunk.js.map": "/static/js/2.4d0c177f.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.24dbb460fe907bed44302d4be78a198e.js": "/precache-manifest.24dbb460fe907bed44302d4be78a198e.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.f2baa2db.chunk.css.map": "/static/css/main.f2baa2db.chunk.css.map",
+    "static/media/DisposableDroidBB_bld.otf": "/static/media/DisposableDroidBB_bld.141dbd81.otf",
+    "static/media/logo.svg": "/static/media/logo.25bf045c.svg",
+    "static/media/titleImage.png": "/static/media/titleImage.cf8cc261.png"
+  }
+}
