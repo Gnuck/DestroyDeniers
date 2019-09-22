@@ -150,11 +150,6 @@ const App = () => {
           </div>
         </div>
         {credits}
-        <div className="btnWrapper">
-          <div className="backBtn" onClick={backClick}>
-            <p>BACK</p>
-          </div>
-        </div>
       </div>
     </div>
 
