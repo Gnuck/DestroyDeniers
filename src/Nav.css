@@ -1,0 +1,96 @@
+@font-face{
+	font-family: DisposableDroidBB_bld;
+	src: url(./fonts/DisposableDroidBB_bld.otf);
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  body {
+  }
+}
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  body {
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  body {
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  body {
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  body {
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+
+.header {
+  padding: 20px
+}
+
+nav {
+  width: 100%;
+  margin: 0;
+  top: 0;
+  background: #66cf7c;
+  color: #ccc;
+  display: flex;
+  justify-content: flex-end;
+  min-height: 85px;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  justify-content: flex-end;
+  margin: 0;
+  padding: 0;
+  width: 30%;
+}
+
+li {
+  height: 100%;
+  flex: 1;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  cursor: pointer;
+  color: #2627FF;
+  font-size: 1.5em;
+  font-family: 'DisposableDroidBB_bld';
+}
+
+li:hover {
+
+}
+
+.fixed-nav {
+  position: fixed;
+}
+
+.content {
+  width: 80%;
+  margin: 0 auto;
+  text-align: justify;
+  padding-top: 20px;
+}
+
+.content > div {
+  margin: 10px 0;
+}
