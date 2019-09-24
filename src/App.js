@@ -1,56 +1,20 @@
 import React, { useState } from 'react';
-import logo from './logo.svg';
 import './App.css';
-import mainLogo from './titleImage.png';
-import clearLogo from './logoClear.png';
 import * as serviceWorker from './serviceWorker';
-import { useMediaQuery } from 'react-responsive';
-import MediaQuery from 'react-responsive';
 import Iframe from 'react-iframe';
-import Nav from './Nav';
  
 
-const bodyStyle = {
-  // "background-color": " #66CF7C",
-}
-
-const credits = {
-  "margin-top" : "500px",
-  "margin-bottom" : "300px",
-  "display" : "flex",
-  "flex-direction": "column",
-  "justify-content" : "flex-start",
-  "width" : "50%"
-}
-
-const pMargin = {
-  "marginBottom" : 20,
-}
-
 const App = () => {
-  const [loaded, setLoaded] = useState(false);
+  const [moreInfo, setMoreInfo] = useState(false);
 
   serviceWorker.unregister();
-
-  const imageClick = () => {
-    setLoaded(loaded => true);
-  }
 
   const backClick =() => {
      window.scrollTo(0, 0); 
   }
-
-  const isDesktopOrLaptop = useMediaQuery(
-     { minDeviceWidth: 1224 },
-     { deviceWidth: 1600 } // `device` prop
-  )
-  const isTabletOrMobile = useMediaQuery({ maxWidth: 1224 })
-  const isTabletOrMobileDevice = useMediaQuery({ maxDeviceWidth: 1224 })
-  const isPortrait = useMediaQuery({ orientation: 'portrait' })
  
   
   var keys = {};
-
 
   window.addEventListener("keydown",
     function(e){
@@ -69,75 +33,39 @@ const App = () => {
       },
   false);
 
-  const printStuff = () => {
-    console.log('loaded iframe');
-  }
-
-  let frame;
-  if (loaded) {
-    if(isTabletOrMobile) {
-      frame = 
-        (<div className="aspect-ratio">
-          <div className="aspect-ratio-inner">
-          <Iframe url="https://gnuck.github.io/DestroyDeniersGame/"
-          width="100%"
-          height="100%"
-          id="myId"
-          className="myClassname"
-          display="initial"
-          scrolling="false"
-          allowFullScreen="true"
-          position="relative"/>
-          </div>
-        </div>);
-    } else {
-      frame = 
-        (<div className="aspect-ratio-desktop">
-          <div className="aspect-ratio-inner">
-          <Iframe url="https://gnuck.github.io/DestroyDeniersGame/"
-          width="100%"
-          height="100%"
-          id="myId"
-          className="desktopFrames"
-          display="initial"
-          scrolling="false"
-          allowFullScreen="true"
-          position="relative"/>
-          </div>
-        </div>);
-    }
-  } else {
-    frame = <img  className="img-frame" src={mainLogo} alt="RunForOurLives" onClick={imageClick}/>
-  }
-
   let credits;
-  if(isTabletOrMobile){
-    credits = <div className="credits">
-      <p>Nick Milner</p>
-      <p>Game Developer</p>
-      <p style={pMargin}>/Level Designer</p>
-      <p>Chloe Konnor</p>
-      <p style={pMargin}>Writer</p>
-      <p>Tanya Karpitskiy</p>
-      <p style={pMargin}>Designer</p>
-      <p>Daniel Thies</p>
-      <p style={pMargin}>Character Illustrator</p>
-    </div>
-  } else {
-    credits = <div className="credits">
-      <p>Nick Milner .............. Game Developer/Level Designer</p>
-      <p>Chloe Konnor ............. Writer</p>
-      <p>Tanya Karpitskiy ......... Designer</p>
-      <p>Daniel Thies ............. Character Illustrator</p>
-    </div>
-  }
+    credits = 
+    (<div>
+      <div className="credits">
+        <p>Nick Milner...................Game Developer/Level Designer</p>
+        <p>Chloe Konnor................Writer</p>
+        <p>Tanya Karpitskiy..........Designer</p>
+        <p>Daniel Thies.................Character Illustrator</p>
+      </div>
+      <div className="btnWrapper">
+        <div className="backBtn" onClick={()=>setMoreInfo(false)}>
+          <p>BACK</p>
+        </div>
+      </div>
+    </div>)
 
-  return (
-    <div className="App">
-      <Nav />
-      <div style={bodyStyle}>
-        <img  className="clear-logo" src={clearLogo} alt="RunForOurLives" onClick={imageClick}/>
-        {frame}
+  let body;
+  if (!moreInfo) {
+    body = 
+      <div>
+        <div className="aspect-ratio">
+          <div className="aspect-ratio-inner">
+            <Iframe url="https://gnuck.github.io/DestroyDeniersGame/"
+            width="100%"
+            height="100%"
+            id="myId"
+            className="myClassname"
+            display="initial"
+            scrolling="false"
+            allowFullScreen="true"
+            position="relative"/>
+          </div>
+        </div>;
         <div className="btnWrapper">
 
           <div className="backBtn" onClick={backClick}>
@@ -149,8 +77,31 @@ const App = () => {
           </a>
           </div>
         </div>
-        {credits}
+        <div className="btnWrapper">
+          <ul className="linkWrapper">
+            <li>
+              <a href="https://www.nrdc.org/?_ga=2.260557133.1502811972.1569007614-2068348596.1569007614">
+                Climate Change
+              </a>
+            </li>
+            <li>
+              <a href="https://globalclimatestrike.net/">
+                Strikes Near Me
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div className="infoLinkWrapper">
+          <p onClick={()=>setMoreInfo(true)}className="infoLink">?</p>
+        </div>
       </div>
+  } else {
+    body = credits
+  }
+
+  return (
+    <div className="App">
+      {body}
     </div>
 
   );
