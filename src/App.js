@@ -34,20 +34,6 @@ const App = () => {
   false);
 
   let credits;
-    credits = 
-    (<div>
-      <div className="credits">
-        <p>Nick Milner...................Game Developer/Level Designer</p>
-        <p>Chloe Konnor................Writer</p>
-        <p>Tanya Karpitskiy..........Designer</p>
-        <p>Daniel Thies.................Character Illustrator</p>
-      </div>
-      <div className="btnWrapper">
-        <div className="backBtn" onClick={()=>setMoreInfo(false)}>
-          <p>BACK</p>
-        </div>
-      </div>
-    </div>)
 
   let body;
   if (!moreInfo) {
@@ -96,7 +82,20 @@ const App = () => {
         </div>
       </div>
   } else {
-    body = credits
+    body =     
+    (<div>
+      <div className="credits">
+        <p>Nick Milner...................Game Developer/Level Designer</p>
+        <p>Chloe Konnor................Writer</p>
+        <p>Tanya Karpitskiy..........Designer</p>
+        <p>Daniel Thies.................Character Illustrator</p>
+      </div>
+      <div className="btnWrapper">
+        <div className="backBtn" onClick={()=>setMoreInfo(false)}>
+          <p>BACK</p>
+        </div>
+      </div>
+    </div>)
   }
 
   return (
