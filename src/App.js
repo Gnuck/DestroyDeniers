@@ -86,8 +86,8 @@ const App = () => {
     (<div>
       <div className="credits">
         <p>Nick Milner...................Game Developer/Level Designer</p>
-        <p>Chloe Konnor................Writer</p>
-        <p>Tanya Karpitskiy..........Designer</p>
+        <p><a href="https://chloekonnor.com/">Chloe Konnor................Writer</a></p>
+        <p><a href="https://tanyakarpitskiy.format.com/">Tanya Karpitskiy..........Designer</a></p>
         <p>Daniel Thies.................Character Illustrator</p>
       </div>
       <div className="btnWrapper">
