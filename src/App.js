@@ -2,18 +2,34 @@ import React, { useState } from 'react';
 import './App.css';
 import * as serviceWorker from './serviceWorker';
 import Iframe from 'react-iframe';
+import ReactGA from 'react-ga';
  
+function initializeReactGA() {
+    ReactGA.initialize('UA-149402647-1');
+    ReactGA.pageview('/');
+}
+
+initializeReactGA();
 
 const App = () => {
   const [moreInfo, setMoreInfo] = useState(false);
 
   serviceWorker.unregister();
-
-  const backClick =() => {
-     window.scrollTo(0, 0); 
-  }
- 
   
+  const petitionClick = () => {
+    ReactGA.event({
+      category: 'Button',
+      action: 'Sign Petition button clicked (on page)'
+    });
+  }
+
+  const aboutClick = () => {
+    ReactGA.event({
+      category: 'Button',
+      action: 'About "?" button'
+    })
+  }
+
   var keys = {};
 
   window.addEventListener("keydown",
@@ -33,8 +49,6 @@ const App = () => {
       },
   false);
 
-  let credits;
-
   let body;
   if (!moreInfo) {
     body = 
@@ -49,12 +63,13 @@ const App = () => {
             display="initial"
             scrolling="false"
             allowFullScreen="true"
-            position="relative"/>
+            position="relative"
+          />
           </div>
         </div>;
         <div className="btnWrapper">
 
-          <div className="backBtn" onClick={backClick}>
+          <div className="backBtn" onClick={petitionClick}>
           <a 
             className="petitionBtn" 
             href="https://act.nrdc.org/letter/climate-action-190528?source=WBSCLIPET&_ga=2.268940785.1658644004.1568915059-710825981.1568915059"
@@ -91,7 +106,15 @@ const App = () => {
         <p>Daniel Thies.................Character Illustrator</p>
       </div>
       <div className="btnWrapper">
-        <div className="backBtn" onClick={()=>setMoreInfo(false)}>
+        <div 
+          className="backBtn" 
+          onClick={()=>
+            {
+              aboutClick();
+              setMoreInfo(false);
+            }
+          }
+        >
           <p>BACK</p>
         </div>
       </div>
