@@ -66,7 +66,7 @@ const App = () => {
             position="relative"
           />
           </div>
-        </div>;
+        </div>
         <div className="btnWrapper">
 
           <div className="backBtn" onClick={petitionClick}>
